@@ -248,7 +248,7 @@ Password: oldmodz95</p>
 
 ###### License
 
-![License](https://img.shields.io/github/license/OldModz95-YTB/Design-Auth.gg-New-Version)
+![License](https://img.shields.io/github/license/ProtonD/Design-Auth.gg-New-Version)
 ```
 Apache License
 Version 2.0, January 2004
