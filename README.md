@@ -19,7 +19,7 @@ OldModz95
 <br>
 <br>
 
-# Require
+# Infos
 <br>
 
 ```
