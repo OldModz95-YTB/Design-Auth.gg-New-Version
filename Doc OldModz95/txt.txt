@@ -1,0 +1,155 @@
+////////////////////////////
+Ajouter dans le program.cs
+////////////////////////////
+
+
+OnProgramStart.Initialize("Nom du logiciel", "AID DE VOTRE COMPTE", "KEY SECRET", "1.0");
+
+
+
+//////////////////////////////////
+Bouton ou fonctionnalité login
+/////////////////////////////////
+
+
+if (API.Login(pnlogin.Text, pnpass.Text))
+            {
+                timer2.Start();
+                succeslogin.SHowDialog("Login Success !");
+            }
+            else
+            {
+                //Never
+            }
+
+
+
+
+
+///////////////////////////////////
+Bouton ou fonctionnalité register
+//////////////////////////////////
+
+
+if (API.Register(reuser.Text, remail.Text, repass.Text, rekey.Text))
+            {
+                succeslogin.SHowDialog("Success Register !");
+                panellogin.BringToFront();
+                guna2Transition1.Show(panellogin);
+            }
+
+
+
+
+////////////////////////////
+Fonctionnalié pour entrée
+////////////////////////////
+
+
+if (e.KeyCode == Keys.Enter)
+            {
+                register.PerformClick();
+                e.Handled = true;
+            }
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////
+Fonctionnalié pour reduire l'opacité de la form et ajouter une guna2Transition1
+/////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+bunifuFormFadeTransition1.ShowAsyc(this);
+            if (this.Opacity > 0)
+            {
+                this.Opacity -= 0.1;
+            }
+
+
+
+
+
+/////////////////////////////////////////////////////////
+Information de l'utilisateur et abonnement
+////////////////////////////////////////////////////////
+
+
+label1.Text = "Username: " + User.Username;
+label2.Text = "Email: " + User.Email;
+label3.Text = "User Variable: " + User.UserVariable;
+label4.Text = "HWID: " + User.HWID;
+label5.Text = "IP: " + User.IP;
+label6.Text = "Rank: " + User.Rank;
+label7.Text = "Expiry: " + User.Expiry;
+label8.Text = "Last Login: " + User.LastLogin;
+label9.Text = "Register Date: " + User.RegisterDate;
+pnlogin.Text = User.Username;
+
+
+
+
+
+//////////////////////////
+Valid License
+//////////////////////////
+
+
+if (API.ExtendSubscription(pnlogin.Text, passapi.Text, apiadd.Text))
+            {
+                Messagebox.Show("License Valid !");
+                API.Log(pnlogin.Text, "Extend Subscription");
+            }
+            else
+            {
+
+            }
+
+
+
+
+/////////////////
+Login Infos User
+///////////////////
+
+
+
+if (API.Login(pnlogin.Text, conlogin.Text))
+            {
+                passapi.Text = conlogin.Text;
+                panelpass.Visible = false;
+                panelinfos.Visible = true;
+                succeslogin.SHowDialog("Password Correct !");
+            }
+            else
+            {
+
+            }
+
+
+
+
+
+
+
+///////////////
+Refresh Infos
+///////////////
+
+
+if (API.Login(pnlogin.Text, passapi.Text))
+            {
+                timer2.Start();
+                Messagebox.Show("Refresh All Information !");
+            }
+            else
+            {
+                
+            }
